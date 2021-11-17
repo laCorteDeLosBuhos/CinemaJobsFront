@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 d-md-block d-none float-left fondo"></div>
+        <div class="col-md-6 float-left">
+            <div class="login">
+                <img src="/assets/CinemaJobs.png" alt="" class="img-fluid">
+                <form class="enter" [formGroup]="form" (submit)="submit()">
+                    <div class="user">
+                        <label for="usuario">Usuario</label><br>
+                        <input type="text" name="usuario" placeholder="Ingresa tu usuario" formControlName="user">
+                    </div>
+                    <div class="user">
+                        <label for="">Contraseña</label><br>
+                        <input type="password" name="contra" placeholder="Ingresa tu contraseña" formControlName="pass">
+                    </div>
+                    <div class="user text-right">
+                        <span>¿Olvidaste tu contraseña?</span>
+                    </div>
+                    <div class="user text-center pt-4">
+                        <button class="iniciar" type="submit">Iniciar sesión</button>
+                    </div>
+                    <div class="aun-no">
+                        <span>¿Aún no tienes una cuenta?</span>
+                        <br>
+                        <a href="">Crear una cuenta nueva</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

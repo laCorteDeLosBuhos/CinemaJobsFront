@@ -1,0 +1,75 @@
+.fondo {
+    background-image: url("/assets/FondoLogin.png");
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.login {
+    padding: 10% 15%;
+}
+
+.enter {
+    padding: 10% 15%;
+}
+
+.user {
+    padding-top: 10px;
+}
+
+label {
+    color: #385065;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ebeef0;
+    border-radius: 10px;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.user span {
+    color: #385065;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.iniciar {
+    background-color: #385065;
+    color: #ffffff;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 15px;
+    border: none;
+    width: 70%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.aun-no {
+    padding-top: 20%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.aun-no a {
+    color: #385065;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media (max-width:768px) {
+    .login,
+    .enter {
+        padding: 5%;
+    }
+}
