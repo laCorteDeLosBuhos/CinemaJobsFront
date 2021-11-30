@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InitServiceService {
-
+  informacion:any;
   constructor(private http: HttpClient) { }
 
   login(datos:any):Observable<any>{
@@ -20,5 +20,11 @@ export class InitServiceService {
   }
   obtenerUsuarios():Observable<any>{
     return this.http.get("http://localhost:4000/api/cuentas/obtener")
+  }
+  eliminarUsuario(datos:any):Observable<any>{
+    return this.http.post("http://localhost:4000/api/cuentaspadre/eliminar",datos)
+  }
+  editarUsuario(datos:any):Observable<any>{
+    return this.http.post("http://localhost:4000/api/cuentaspadre/editar",datos)
   }
 }

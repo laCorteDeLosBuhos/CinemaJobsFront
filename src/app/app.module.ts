@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { EditarEmpresaComponent } from './Components/Editar/editar-empresa/editar-empresa.component';
+import { EditarUsuarioComponent } from './Components/Editar/editar-usuario/editar-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { MatSortModule } from '@angular/material/sort';
     UsuarioComponent,
     EmpresaComponent,
     HeaderComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    EditarEmpresaComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     BrowserModule,

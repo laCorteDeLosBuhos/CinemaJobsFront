@@ -60,4 +60,43 @@ export class UsuariosComponent implements OnInit, AfterViewInit  {
       }
     })
   }
+  eliminar(id:number){
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar el usuario?',
+      html:'Recuerde que es una acción irreversible',
+      showCloseButton: false,
+      showDenyButton: true,
+      confirmButtonColor:"#385065",
+      denyButtonColor:"#CF4B39",
+      focusConfirm: false,
+      confirmButtonText:
+        'Eliminar',
+      confirmButtonAriaLabel: 'Eliminar',
+      denyButtonText:
+        'Cancelar',
+        denyButtonAriaLabel: 'Cancelar'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        let dato={Id:id}
+        this.service.eliminarUsuario(dato).toPromise().then((res:any)=>{
+          Swal.fire('', 'Usuario eliminado exitosamente', 'success')
+          this.service.obtenerUsuarios().toPromise().then((result:any)=>{
+            this.dataSource=new MatTableDataSource(result);
+            
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          })
+        })
+      }else if(result.isDenied){
+      }
+    })
+  }
+  editar(id:any){
+    this.service.informacion=id;
+    if(id.TipoUsuario=="Padre"){
+      this.router.navigate(['editar/empresa'])
+    }else{
+      this.router.navigate(['editar/usuario'])
+    }
+  }
 }
