@@ -12,4 +12,13 @@ export class InitServiceService {
   login(datos:any):Observable<any>{
     return this.http.post("http://localhost:4000/api/auth/",datos)
   }
+  crearUsuario(datos:any):Observable<any>{
+    return this.http.post("http://localhost:4000/api/cuentaspadre/crear",datos)
+  }
+  crearUsuarioAdmin(datos:any):Observable<any>{
+    return this.http.post("http://localhost:4000/api/admin/crear",datos)
+  }
+  obtenerUsuarios():Observable<any>{
+    return this.http.get("http://localhost:4000/api/cuentas/obtener")
+  }
 }

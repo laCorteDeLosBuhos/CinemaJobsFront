@@ -1,0 +1,215 @@
+<app-header></app-header>
+<div class="container">
+    <form class="formulario" [formGroup]="form" (submit)="crear()">
+        <div class="row">
+            <h2>Crear usuario</h2>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Nombre</label><br>
+                    <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu nombre" formControlName="user">
+                    <div class="col-md-12" *ngIf="form.get('user')?.invalid && (form.get('user')?.dirty || form.get('user')?.touched)">
+                        <span class="err" *ngIf="form.get('user')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" id="email" placeholder="Ingresa tu email" formControlName="email">
+                    <div class="col-md-12" *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                        <span class="err" *ngIf="form.get('email')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="password">Contraseña</label><br>
+                    <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña" formControlName="password">
+                    <div class="col-md-12" *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+                        <span class="err" *ngIf="form.get('password')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="confirmar">Confirmar contraseña</label><br>
+                    <input type="password" name="confirmar" id="confirmar" placeholder="Confirma tu contraseña" formControlName="confirmar">
+                    <div class="col-md-12" *ngIf="form.get('confirmar')?.invalid && (form.get('confirmar')?.dirty || form.get('confirmar')?.touched)">
+                        <span class="err" *ngIf="form.get('confirmar')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <span [class]="form.get('password')?.errors?'err':'ok'"><img src="assets/ok.png" alt="" *ngIf="!form.get('password')?.errors"> Debe tener al menos 8 caracteres de largo, usar mayúsculas, minúsculas y números.</span><br>
+                <span class="err" *ngIf="form.get('password')?.value!=form.get('confirmar')?.value">Las Contraseñas deben ser iguales</span>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="empresa">Nombre de la empresa</label><br>
+                    <input type="text" name="empresa" id="empresa" placeholder="Ingresa el nombre de la empresa" formControlName="empresa">
+                    <div class="col-md-12" *ngIf="form.get('empresa')?.invalid && (form.get('empresa')?.dirty || form.get('empresa')?.touched)">
+                        <span class="err" *ngIf="form.get('empresa')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="descripcion">Descripciòn de la empresa</label><br>
+                    <textarea rows="6" placeholder="Ingresa la descripciòn de la empresa" formControlName="descripcion" id="descripcion" name="descripcion"></textarea>
+                    <div class="col-md-12" *ngIf="form.get('descripcion')?.invalid && (form.get('descripcion')?.dirty || form.get('descripcion')?.touched)">
+                        <span class="err" *ngIf="form.get('descripcion')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="user">
+                            <label for="logo">Logo</label><br>
+                            <span style="line-height: 40px;" onclick="document.getElementById('logo').click()">Cargar Imagen <img src="assets/bi_upload.png" alt=""></span>
+                            <input type="file" name="logo" id="logo" placeholder="Ingresa tu contraseña" formControlName="logo" hidden (change)="imagen($event)">
+                            <div class="col-md-12" *ngIf="form.get('logo')?.invalid && (form.get('logo')?.dirty || form.get('logo')?.touched)">
+                                <span class="err" *ngIf="form.get('logo')?.getError('required')">Campo Obligatorio</span>
+                            </div>
+                            <img [src]="image" style="width: 100%;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="user">
+                            <label for="video">Video</label><br>
+                            <input type="text" name="video" id="video" placeholder="Url Video" formControlName="video">
+                            <div class="col-md-12" *ngIf="form.get('video')?.invalid && (form.get('video')?.dirty || form.get('video')?.touched)">
+                                <span class="err" *ngIf="form.get('video')?.getError('required')">Campo Obligatorio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="color">Color</label><br>
+                    <input type="radio" id="vehicle1" name="color" value="#62D49F" style="background-color: #62D49F;" formControlName="color">
+                    <input type="radio" id="vehicle1" name="color" value="#385065" style="background-color: #385065;" formControlName="color">
+                    <input type="radio" id="vehicle1" name="color" value="#CF4B39" style="background-color: #CF4B39;" formControlName="color">
+                    <input type="radio" id="vehicle1" name="color" value="#F2A53B" style="background-color: #F2A53B;" formControlName="color">
+                    <input type="radio" id="vehicle1" name="color" value="#C4C4C4" style="background-color: #C4C4C4;" formControlName="color">
+                    <input type="radio" id="vehicle1" name="color" value="#444444" style="background-color: #444444;" formControlName="color">
+                </div>
+                <div class="col-md-12" *ngIf="form.get('color')?.invalid && (form.get('color')?.dirty || form.get('color')?.touched)">
+                    <span class="err" *ngIf="form.get('color')?.getError('required')">Campo Obligatorio</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="pais">País</label><br>
+                    <select name="pais" id="pais" aria-placeholder="País" formControlName="pais">
+                        <option selected disabled>Selecciona el país</option>
+                        <option value="Colombia">Colombia</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('pais')?.invalid && (form.get('pais')?.dirty || form.get('pais')?.touched)">
+                        <span class="err" *ngIf="form.get('pais')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="ciudad">Ciudad</label><br>
+                    <select name="ciudad" id="ciudad" aria-placeholder="ciudad" formControlName="ciudad">
+                        <option selected disabled>Selecciona la ciudad</option>
+                        <option value="Bogota">Bogota D.C</option>
+                        <option value="Medellin">Medellin</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('ciudad')?.invalid && (form.get('ciudad')?.dirty || form.get('ciudad')?.touched)">
+                        <span class="err" *ngIf="form.get('ciudad')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="direccion">Dirección</label><br>
+                    <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu dirección" formControlName="direccion">
+                    <div class="col-md-12" *ngIf="form.get('direccion')?.invalid && (form.get('direccion')?.dirty || form.get('direccion')?.touched)">
+                        <span class="err" *ngIf="form.get('direccion')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="user">
+                            <label for="Indicatico">Indicatico</label><br>
+                            <select name="Indicatico" id="Indicatico" aria-placeholder="País" formControlName="indicativo">
+                                <option selected disabled>Seleccione</option>
+                                <option value="+57">+57</option>
+                            </select>
+                            <div class="col-md-12" *ngIf="form.get('indicativo')?.invalid && (form.get('indicativo')?.dirty || form.get('indicativo')?.touched)">
+                                <span class="err" *ngIf="form.get('indicativo')?.getError('required')">Campo Obligatorio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="user">
+                            <label for="telefono">Teléfono</label><br>
+                            <input type="text" name="telefono" placeholder="Ingresa tu teléfono" formControlName="telefono">
+                            <div class="col-md-12" *ngIf="form.get('telefono')?.invalid && (form.get('telefono')?.dirty || form.get('telefono')?.touched)">
+                                <span class="err" *ngIf="form.get('telefono')?.getError('required')">Campo Obligatorio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pt-3" formArrayName="cuentasSecundarias" *ngIf="cuentas.length>0">
+                <div class="row" *ngFor="let cuenta of cuentas.controls;  index as i">
+                    <form class="col-12" [formGroupName]="i">
+                        <h3 style="font-weight: 600;font-size: 18px;">Datos segunda cuenta</h3>
+                        <div class="col-md-6">
+                            <div class="user">
+                                <label for="usuario">Nombre</label><br>
+                                <input type="text" name="usuario" placeholder="Ingresa tu nombre" formControlName="user">
+                                <div class="col-md-12" *ngIf="cuenta.get('user')?.invalid && (cuenta.get('user')?.dirty || cuenta.get('user')?.touched)">
+                                    <span class="err" *ngIf="cuenta.get('user')?.getError('required')">Campo Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="user">
+                                <label for="usuario">Email</label><br>
+                                <input type="email" name="usuario" placeholder="Ingresa tu email" formControlName="email">
+                                <div class="col-md-12" *ngIf="cuenta.get('user')?.invalid && (cuenta.get('user')?.dirty || cuenta.get('user')?.touched)">
+                                    <span class="err" *ngIf="cuenta.get('user')?.getError('required')">Campo Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="user">
+                                <label for="usuario">Contraseña</label><br>
+                                <input type="password" name="usuario" placeholder="Ingresa tu contraseña" formControlName="password">
+                                <div class="col-md-12" *ngIf="cuenta.get('user')?.invalid && (cuenta.get('user')?.dirty || cuenta.get('user')?.touched)">
+                                    <span class="err" *ngIf="cuenta.get('user')?.getError('required')">Campo Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="user">
+                                <label for="confirmar">Confirmar contraseña</label><br>
+                                <input type="password" name="confirmar" placeholder="Confirma tu contraseña" formControlName="confirmar">
+                                <div class="col-md-12" *ngIf="cuenta.get('user')?.invalid && (cuenta.get('user')?.dirty || cuenta.get('user')?.touched)">
+                                    <span class="err" *ngIf="cuenta.get('user')?.getError('required')">Campo Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="user">
+                    <span (click)="anadir()"><img src="assets/carbon_add-alt.png" alt=""> Crear más cuentas para esta empresa</span>
+                </div>
+            </div>
+            <div class="col-12 text-center py-5">
+                <button type="submit">Crear usuario</button>
+            </div>
+        </div>
+    </form>
+</div>

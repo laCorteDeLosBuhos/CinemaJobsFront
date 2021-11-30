@@ -1,0 +1,110 @@
+<app-header></app-header>
+<div class="container">
+    <form class="formulario" [formGroup]="form" (submit)="crear()">
+        <div class="row">
+            <h2>Crear usuario</h2>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Nombre</label><br>
+                    <input type="text" name="usuario" placeholder="Ingresa tu nombre" formControlName="user">
+                    <div class="col-md-12" *ngIf="form.get('user')?.invalid && (form.get('user')?.dirty || form.get('user')?.touched)">
+                        <span class="err" *ngIf="form.get('user')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Email</label><br>
+                    <input type="email" name="usuario" placeholder="Ingresa tu email" formControlName="email">
+                    <div class="col-md-12" *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                        <span class="err" *ngIf="form.get('email')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Contraseña</label><br>
+                    <input type="password" name="usuario" placeholder="Ingresa tu contraseña" formControlName="password">
+                    <div class="col-md-12" *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+                        <span class="err" *ngIf="form.get('password')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Confirmar contraseña</label><br>
+                    <input type="password" name="usuario" placeholder="Confirma tu contraseña" formControlName="confirmar">
+                    <div class="col-md-12" *ngIf="form.get('confirmar')?.invalid && (form.get('confirmar')?.dirty || form.get('confirmar')?.touched)">
+                        <span class="err" *ngIf="form.get('confirmar')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <span [class]="form.get('password')?.errors?'err':'ok'"><img src="assets/ok.png" alt="" *ngIf="!form.get('password')?.errors"> Debe tener al menos 8 caracteres de largo, usar mayúsculas, minúsculas y números.</span><br>
+                <span class="err" *ngIf="form.get('password')?.value!=form.get('confirmar')?.value">Las Contraseñas deben ser iguales</span>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">País</label><br>
+                    <select name="pais" id="pais" aria-placeholder="País" formControlName="pais">
+                        <option selected disabled>Selecciona el país</option>
+                        <option value="Colombia">Colombia</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('pais')?.invalid && (form.get('pais')?.dirty || form.get('pais')?.touched)">
+                        <span class="err" *ngIf="form.get('pais')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="ciudad">Ciudad</label><br>
+                    <select name="ciudad" id="ciudad" aria-placeholder="ciudad" formControlName="ciudad">
+                        <option selected disabled>Selecciona la ciudad</option>
+                        <option value="Bogota">Bogota D.C</option>
+                        <option value="Medellin">Medellin</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('ciudad')?.invalid && (form.get('ciudad')?.dirty || form.get('ciudad')?.touched)">
+                        <span class="err" *ngIf="form.get('ciudad')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="direccion">Dirección</label><br>
+                    <input type="text" name="direccion" placeholder="Ingresa tu dirección" formControlName="direccion">
+                    <div class="col-md-12" *ngIf="form.get('direccion')?.invalid && (form.get('direccion')?.dirty || form.get('direccion')?.touched)">
+                        <span class="err" *ngIf="form.get('direccion')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="user">
+                            <label for="usuario">Indicatico</label><br>
+                            <select name="pais" id="pais" aria-placeholder="País" formControlName="indicativo">
+                                <option selected disabled>+57</option>
+                                <option value="+57">+57</option>
+                            </select>
+                            <div class="col-md-12" *ngIf="form.get('indicativo')?.invalid && (form.get('indicativo')?.dirty || form.get('indicativo')?.touched)">
+                                <span class="err" *ngIf="form.get('indicativo')?.getError('required')">Campo Obligatorio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="user">
+                            <label for="ciudad">Teléfono</label><br>
+                            <input type="text" name="direccion" placeholder="Ingresa tu teléfono" formControlName="telefono">
+                            <div class="col-md-12" *ngIf="form.get('telefono')?.invalid && (form.get('telefono')?.dirty || form.get('telefono')?.touched)">
+                                <span class="err" *ngIf="form.get('telefono')?.getError('required')">Campo Obligatorio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center py-5">
+                <button type="submit">Crear usuario</button>
+            </div>
+        </div>
+    </form>
+</div>
