@@ -22,9 +22,9 @@ export class InitServiceService {
     return this.http.get("https://cinemajobs-api.herokuapp.com/api/cuentas/obtener")
   }
   eliminarUsuario(datos:any):Observable<any>{
-    return this.http.post("http://localhost:4000/api/cuentaspadre/eliminar",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/cuentaspadre/eliminar",datos)
   }
   editarUsuario(datos:any):Observable<any>{
-    return this.http.post("http://localhost:4000/api/cuentaspadre/editar",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/cuentaspadre/editar",datos)
   }
 }
