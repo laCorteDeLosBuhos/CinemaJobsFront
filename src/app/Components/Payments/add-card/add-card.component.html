@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container">
+    <form class="formulario" [formGroup]="form" (submit)="send()">
+        <div class="row">
+            <h2>Agregar Tarjeta</h2>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Numero de la Tarjeta</label><br>
+                    <input type="text" name="usuario" placeholder="Ingresa tu nombre" formControlName="cardNumber">
+                    <div class="col-md-12" *ngIf="form.get('cardNumber')?.invalid && (form.get('cardNumber')?.dirty || form.get('cardNumber')?.touched)">
+                        <span class="err" *ngIf="form.get('cardNumber')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 row">
+                <div class="col-md-6">
+                    <div class="user">
+                        <label for="expMonth">Mes de Expiracion</label><br>
+                        <input type="text" name="expMonth" placeholder="Mes" formControlName="expMonth">
+                        <div class="col-md-12" *ngIf="form.get('expMonth')?.invalid && (form.get('expMonth')?.dirty || form.get('expMonth')?.touched)">
+                            <span class="err" *ngIf="form.get('expMonth')?.getError('required')">Campo Obligatorio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="user">
+                        <label for="expYear">Año de Expiracion</label><br>
+                        <input type="text" name="expYear" placeholder="Año" formControlName="expYear">
+                        <div class="col-md-12" *ngIf="form.get('expYear')?.invalid && (form.get('expYear')?.dirty || form.get('expYear')?.touched)">
+                            <span class="err" *ngIf="form.get('expYear')?.getError('required')">Campo Obligatorio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>&nbsp;</label>
+                <div class="user">
+                    <label for="cvc">CVC</label><br>
+                    <input type="text" name="cvc" placeholder="CVC" formControlName="cvc">
+                    <div class="col-md-12" *ngIf="form.get('cvc')?.invalid && (form.get('cvc')?.dirty || form.get('cvc')?.touched)">
+                        <span class="err" *ngIf="form.get('cvc')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <label>&nbsp;</label>
+                <div class="user">
+                    <label for="cardName">Nombre en tarjeta</label><br>
+                    <input type="text" name="cardName" placeholder="Nombre en Tarjeta" formControlName="cardName">
+                    <div class="col-md-12" *ngIf="form.get('cardName')?.invalid && (form.get('cardName')?.dirty || form.get('cardName')?.touched)">
+                        <span class="err" *ngIf="form.get('cardName')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="country">Pais</label><br>
+                    <input type="text" name="country" placeholder="Pais" formControlName="country">
+                    <div class="col-md-12" *ngIf="form.get('country')?.invalid && (form.get('country')?.dirty || form.get('country')?.touched)">
+                        <span class="err" *ngIf="form.get('country')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="postal">Postal</label><br>
+                    <input type="text" name="postal" placeholder="Postal" formControlName="postal">
+                    <div class="col-md-12" *ngIf="form.get('postal')?.invalid && (form.get('postal')?.dirty || form.get('postal')?.touched)">
+                        <span class="err" *ngIf="form.get('postal')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center py-5">
+                <button type="submit">Crear Tarjeta</button>
+            </div>
+        </div>
+    </form>
+</div>

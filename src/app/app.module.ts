@@ -15,6 +15,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { EditarEmpresaComponent } from './Components/Editar/editar-empresa/editar-empresa.component';
 import { EditarUsuarioComponent } from './Components/Editar/editar-usuario/editar-usuario.component';
+import { IniciopagoComponent } from './Components/Payments/iniciopago/iniciopago.component';
+import { AddCardComponent } from './Components/Payments/add-card/add-card.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,9 @@ import { EditarUsuarioComponent } from './Components/Editar/editar-usuario/edita
     HeaderComponent,
     UsuariosComponent,
     EditarEmpresaComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    IniciopagoComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { EditarUsuarioComponent } from './Components/Editar/editar-usuario/edita
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

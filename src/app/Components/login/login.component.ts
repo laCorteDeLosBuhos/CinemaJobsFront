@@ -29,11 +29,13 @@ export class LoginComponent implements OnInit {
         if(res.TipoUsuario=="Administrador"){
           this.router.navigate(['administrar/usuarios'])
         }else{
-          Swal.fire(
+          sessionStorage.setItem("email",this.form.get("user")?.value)
+          this.router.navigate(['payments'])
+          /*Swal.fire(
             'Exito',
             'Haz iniciado sesión exitosamente',
             'success'
-          )
+          )*/
         }
       },err=>{
         if(err.status==200){

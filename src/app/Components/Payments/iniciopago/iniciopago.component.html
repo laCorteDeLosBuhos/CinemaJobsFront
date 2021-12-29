@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+
+                <th>Numero de Tarjeta</th>
+
+                <th>Fecha de Expedicion</th>
+
+                <th>Tipo de Tarjeta</th>
+
+            </tr>
+            <tr *ngFor="let card of cards.cardDetails" (click)="select(card)">
+
+                <td>**** **** **** {{card.cardLast4}}</td>
+
+                <td>{{card.cardExpDetails}}</td>
+
+                <td>{{card.cardType}}</td>
+
+            </tr>
+        </table>
+        <div class="col-12 text-center py-5">
+            <button type="button" (click)="crear()">Crear Tarjeta</button>&nbsp;&nbsp;
+            <button type="button" (click)="send()" *ngIf="selected">Realizar Transaccion</button>
+        </div>
+    </div>
+</div>
