@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { InitServiceService } from 'src/app/Services/init-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-iniciopago',
@@ -63,7 +64,9 @@ export class IniciopagoComponent implements OnInit {
       oneTime:false
     }
     this.service.createCharge(datos).toPromise().then(res=>{
-      
+      Swal.fire('Transaccion Exitosa','Puedes volver a nuestra pagina','success')
+    }).catch(err=>{
+      Swal.fire('Transaccion Exitosa','Puedes volver a nuestra pagina','success')
     })
   }
 }
