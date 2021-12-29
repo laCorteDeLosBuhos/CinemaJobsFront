@@ -35,7 +35,7 @@ export class IniciopagoComponent implements OnInit {
   crear(){
     this.router.navigate(['payments/addCard'])
   }
-  selected:any;
+  selected:any={cardId:""};
   select(a:any){
     this.selected=(a)
   }
