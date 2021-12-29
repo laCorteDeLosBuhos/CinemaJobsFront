@@ -18,12 +18,13 @@
                 <td>{{card.cardExpDetails}}</td>
 
                 <td>{{card.cardType}}</td>
+                <td><img src="assets/eliminar.png" alt="" (click)="delete(card.cardId)"></td>
 
             </tr>
         </table>
         <div class="col-12 text-center py-5">
             <button type="button" (click)="crear()">Crear Tarjeta</button>&nbsp;&nbsp;
-            <button type="button" (click)="send()" *ngIf="selected">Realizar Transaccion</button>
+            <button type="button" (click)="send()" *ngIf="selected.cardId!=''">Realizar Transaccion</button>
         </div>
     </div>
 </div>

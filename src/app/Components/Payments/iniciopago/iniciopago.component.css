@@ -16,3 +16,8 @@ button:hover {
     color: #385065;
     border: 1px solid #385065;
 }
+
+td img {
+    z-index: 2;
+    cursor: pointer;
+}

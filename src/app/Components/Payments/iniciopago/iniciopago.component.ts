@@ -39,12 +39,27 @@ export class IniciopagoComponent implements OnInit {
   select(a:any){
     this.selected=(a)
   }
+  delete(a:any){
+    let datos={
+      customerId:sessionStorage.getItem("customerId"),
+      cardId:this.selected.cardId,
+    }
+    this.service.deleteCard(datos).toPromise().then(res=>{
+      res;
+      let info={
+        customerId:sessionStorage.getItem("customerId"),
+      }
+      this.service.viewAllCards(info).toPromise().then((cards:any)=>{
+        this.cards = (cards);
+      })
+    })
+  }
   send(){
     let datos={
       email:sessionStorage.getItem("email"),
-      customerId:sessionStorage.getItem("customerId"),
       cardId:this.selected.cardId,
       amount:50,
+      customerId:sessionStorage.getItem("customerId"),
       oneTime:false
     }
     this.service.createCharge(datos).toPromise().then(res=>{
