@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InitServiceService } from 'src/app/Services/init-service.service';
 import Swal from 'sweetalert2';
+import * as uniqid from 'uniqid';
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
@@ -30,10 +31,6 @@ export class EmpresaComponent implements OnInit {
       video:['',[Validators.required]],
       color:['',[Validators.required]],
       pais:['',[Validators.required]],
-      ciudad:['',[Validators.required]],
-      direccion:['',[Validators.required]],
-      indicativo:['',[Validators.required]],
-      telefono:['',[Validators.required]],
       cuentasSecundarias:this.cuentas
     })
   }
@@ -41,6 +38,7 @@ export class EmpresaComponent implements OnInit {
     if(this.form.valid){
       let data=this.form.value;
       data.logo=this.image;
+      data.account_code=uniqid('AC');
       this.service.crearUsuario(data).toPromise().then((res:any)=>{
         Swal.fire('Exito',res.message,'success').then((result)=>{
           this.router.navigate(['administrar/usuarios'])

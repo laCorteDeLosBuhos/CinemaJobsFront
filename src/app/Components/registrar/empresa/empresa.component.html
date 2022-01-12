@@ -112,53 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="user">
-                    <label for="ciudad">Ciudad</label><br>
-                    <select name="ciudad" id="ciudad" aria-placeholder="ciudad" formControlName="ciudad">
-                        <option selected disabled>Selecciona la ciudad</option>
-                        <option value="Bogota">Bogota D.C</option>
-                        <option value="Medellin">Medellin</option>
-                    </select>
-                    <div class="col-md-12" *ngIf="form.get('ciudad')?.invalid && (form.get('ciudad')?.dirty || form.get('ciudad')?.touched)">
-                        <span class="err" *ngIf="form.get('ciudad')?.getError('required')">Campo Obligatorio</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="user">
-                    <label for="direccion">Dirección</label><br>
-                    <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu dirección" formControlName="direccion">
-                    <div class="col-md-12" *ngIf="form.get('direccion')?.invalid && (form.get('direccion')?.dirty || form.get('direccion')?.touched)">
-                        <span class="err" *ngIf="form.get('direccion')?.getError('required')">Campo Obligatorio</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="user">
-                            <label for="Indicatico">Indicatico</label><br>
-                            <select name="Indicatico" id="Indicatico" aria-placeholder="País" formControlName="indicativo">
-                                <option selected disabled>Seleccione</option>
-                                <option value="+57">+57</option>
-                            </select>
-                            <div class="col-md-12" *ngIf="form.get('indicativo')?.invalid && (form.get('indicativo')?.dirty || form.get('indicativo')?.touched)">
-                                <span class="err" *ngIf="form.get('indicativo')?.getError('required')">Campo Obligatorio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="user">
-                            <label for="telefono">Teléfono</label><br>
-                            <input type="text" name="telefono" placeholder="Ingresa tu teléfono" formControlName="telefono">
-                            <div class="col-md-12" *ngIf="form.get('telefono')?.invalid && (form.get('telefono')?.dirty || form.get('telefono')?.touched)">
-                                <span class="err" *ngIf="form.get('telefono')?.getError('required')">Campo Obligatorio</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-12 pt-3" formArrayName="cuentasSecundarias" *ngIf="cuentas.length>0">
                 <div class="row" *ngFor="let cuenta of cuentas.controls;  index as i">
                     <form class="col-12" [formGroupName]="i">

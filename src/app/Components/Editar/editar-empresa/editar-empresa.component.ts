@@ -19,27 +19,23 @@ export class EditarEmpresaComponent implements OnInit {
     let informacion=this.service.informacion;
     this.form=this.fb.group({
       Id:[informacion.Id,[Validators.required]],
-      nombre:[informacion.Nombre,[Validators.required]],
-      email:[informacion.Email,[Validators.required]],
-      password:[informacion.password,Validators.compose([
+      name:[informacion.name,[Validators.required]],
+      email:[informacion.email,[Validators.required]],
+      password:['',Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(25),
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
      ])],
-      confirmar:[informacion.password,[Validators.required]],
-      empresa:[informacion.empresa,[Validators.required]],
-      descripcion:[informacion.descripcion,[Validators.required]],
-      logo:[''],
-      video:[informacion.video,[Validators.required]],
-      color:[informacion.color,[Validators.required]],
-      pais:[informacion.pais,[Validators.required]],
-      ciudad:[informacion.ciudad,[Validators.required]],
-      direccion:[informacion.direccion,[Validators.required]],
-      indicativo:[informacion.indicativo,[Validators.required]],
-      telefono:[informacion.telefono,[Validators.required]]
+      confirmar:['',[Validators.required]],
+      brand_name:[informacion.brand_name,[Validators.required]],
+      brand_description:[informacion.brand_description,[Validators.required]],
+      brand_logo:[informacion.brand_logo],
+      brand_video:[informacion.brand_video,[Validators.required]],
+      brand_color:[informacion.brand_color,[Validators.required]],
+      country:[informacion.country,[Validators.required]],
     })
-    this.image=informacion.logo;
+    this.image=informacion.brand_logo;
     
   }
   crear(){

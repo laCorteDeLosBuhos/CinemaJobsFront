@@ -18,20 +18,16 @@ export class EditarUsuarioComponent implements OnInit {
     let informacion=this.service.informacion;
     this.form=this.fb.group({
       Id:[informacion.Id,[Validators.required]],
-      nombre:[informacion.Nombre,[Validators.required]],
-      email:[informacion.Email,[Validators.required]],
-      password:[informacion.password,Validators.compose([
+      name:[informacion.name,[Validators.required]],
+      email:[informacion.email,[Validators.required]],
+      password:['',Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(25),
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
      ])],
-      confirmar:[informacion.password,[Validators.required]],
-      pais:[informacion.pais,[Validators.required]],
-      ciudad:[informacion.ciudad,[Validators.required]],
-      direccion:[informacion.direccion,[Validators.required]],
-      indicativo:[informacion.indicativo,[Validators.required]],
-      telefono:[informacion.telefono,[Validators.required]],
+      confirmar:['',[Validators.required]],
+      country:[informacion.country,[Validators.required]],
     })
   }
   crear(){

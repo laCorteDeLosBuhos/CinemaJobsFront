@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class UsuariosComponent implements OnInit, AfterViewInit  {
   
-  displayedColumns: string[] = ['Nombre', 'Email', 'telefono', 'pais', 'ciudad','TipoUsuario','Id'];
+  displayedColumns: string[] = ['Nombre', 'Email',  'pais', 'Id'];
   dataSource:MatTableDataSource<any> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -93,7 +93,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit  {
   }
   editar(id:any){
     this.service.informacion=id;
-    if(id.TipoUsuario=="Padre"){
+    if(id.parent=="0"){
       this.router.navigate(['editar/empresa'])
     }else{
       this.router.navigate(['editar/usuario'])

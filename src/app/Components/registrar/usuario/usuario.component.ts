@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InitServiceService } from 'src/app/Services/init-service.service';
 import Swal from 'sweetalert2';
-
+import * as uniqid from 'uniqid';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -26,15 +26,13 @@ export class UsuarioComponent implements OnInit {
      ])],
       confirmar:['',[Validators.required]],
       pais:['',[Validators.required]],
-      ciudad:['',[Validators.required]],
-      direccion:['',[Validators.required]],
-      indicativo:['',[Validators.required]],
-      telefono:['',[Validators.required]],
     })
   }
   crear(){
     if(this.form.valid){
-      this.service.crearUsuarioAdmin(this.form.value).toPromise().then((res:any)=>{
+      let data=this.form.value;
+      data.account_code=uniqid('AC');
+      this.service.crearUsuarioAdmin(data).toPromise().then((res:any)=>{
         Swal.fire('Exito',res.message,'success').then((result)=>{
           this.router.navigate(['administrar/usuarios'])
         })

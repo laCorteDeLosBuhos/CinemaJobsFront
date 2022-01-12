@@ -6,9 +6,9 @@
             <div class="col-md-6">
                 <div class="user">
                     <label for="usuario">Nombre</label><br>
-                    <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu nombre" formControlName="nombre">
-                    <div class="col-md-12" *ngIf="form.get('nombre')?.invalid && (form.get('nombre')?.dirty || form.get('nombre')?.touched)">
-                        <span class="err" *ngIf="form.get('nombre')?.getError('required')">Campo Obligatorio</span>
+                    <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu nombre" formControlName="name">
+                    <div class="col-md-12" *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)">
+                        <span class="err" *ngIf="form.get('name')?.getError('required')">Campo Obligatorio</span>
                     </div>
                 </div>
             </div>
@@ -46,18 +46,18 @@
             <div class="col-md-12">
                 <div class="user">
                     <label for="empresa">Nombre de la empresa</label><br>
-                    <input type="text" name="empresa" id="empresa" placeholder="Ingresa el nombre de la empresa" formControlName="empresa">
-                    <div class="col-md-12" *ngIf="form.get('empresa')?.invalid && (form.get('empresa')?.dirty || form.get('empresa')?.touched)">
-                        <span class="err" *ngIf="form.get('empresa')?.getError('required')">Campo Obligatorio</span>
+                    <input type="text" name="empresa" id="empresa" placeholder="Ingresa el nombre de la empresa" formControlName="brand_name">
+                    <div class="col-md-12" *ngIf="form.get('brand_name')?.invalid && (form.get('brand_name')?.dirty || form.get('brand_name')?.touched)">
+                        <span class="err" *ngIf="form.get('brand_name')?.getError('required')">Campo Obligatorio</span>
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="user">
                     <label for="descripcion">Descripciòn de la empresa</label><br>
-                    <textarea rows="6" placeholder="Ingresa la descripciòn de la empresa" formControlName="descripcion" id="descripcion" name="descripcion"></textarea>
-                    <div class="col-md-12" *ngIf="form.get('descripcion')?.invalid && (form.get('descripcion')?.dirty || form.get('descripcion')?.touched)">
-                        <span class="err" *ngIf="form.get('descripcion')?.getError('required')">Campo Obligatorio</span>
+                    <textarea rows="6" placeholder="Ingresa la descripciòn de la empresa" formControlName="brand_description" id="descripcion" name="descripcion"></textarea>
+                    <div class="col-md-12" *ngIf="form.get('brand_description')?.invalid && (form.get('brand_description')?.dirty || form.get('brand_description')?.touched)">
+                        <span class="err" *ngIf="form.get('brand_description')?.getError('required')">Campo Obligatorio</span>
                     </div>
                 </div>
             </div>
@@ -68,9 +68,9 @@
                         <div class="user">
                             <label for="logo">Logo</label><br>
                             <span style="line-height: 40px;" onclick="document.getElementById('logo').click()">Cargar Imagen <img src="assets/bi_upload.png" alt=""></span>
-                            <input type="file" name="logo" id="logo" placeholder="Ingresa tu contraseña" formControlName="logo" hidden (change)="imagen($event)">
-                            <div class="col-md-12" *ngIf="form.get('logo')?.invalid && (form.get('logo')?.dirty || form.get('logo')?.touched)">
-                                <span class="err" *ngIf="form.get('logo')?.getError('required')">Campo Obligatorio</span>
+                            <input type="file" name="logo" id="logo" placeholder="Ingresa tu contraseña" formControlName="brand_logo" hidden (change)="imagen($event)">
+                            <div class="col-md-12" *ngIf="form.get('brand_logo')?.invalid && (form.get('brand_logo')?.dirty || form.get('brand_logo')?.touched)">
+                                <span class="err" *ngIf="form.get('brand_logo')?.getError('required')">Campo Obligatorio</span>
                             </div>
                             <img [src]="image" style="width: 100%;">
                         </div>
@@ -78,9 +78,9 @@
                     <div class="col-md-6">
                         <div class="user">
                             <label for="video">Video</label><br>
-                            <input type="text" name="video" id="video" placeholder="Url Video" formControlName="video">
-                            <div class="col-md-12" *ngIf="form.get('video')?.invalid && (form.get('video')?.dirty || form.get('video')?.touched)">
-                                <span class="err" *ngIf="form.get('video')?.getError('required')">Campo Obligatorio</span>
+                            <input type="text" name="video" id="video" placeholder="Url Video" formControlName="brand_video">
+                            <div class="col-md-12" *ngIf="form.get('brand_video')?.invalid && (form.get('brand_video')?.dirty || form.get('brand_video')?.touched)">
+                                <span class="err" *ngIf="form.get('brand_video')?.getError('required')">Campo Obligatorio</span>
                             </div>
                         </div>
                     </div>
@@ -89,73 +89,26 @@
             <div class="col-md-6">
                 <div class="user">
                     <label for="color">Color</label><br>
-                    <input type="radio" id="vehicle1" name="color" value="#62D49F" style="background-color: #62D49F;" formControlName="color">
-                    <input type="radio" id="vehicle1" name="color" value="#385065" style="background-color: #385065;" formControlName="color">
-                    <input type="radio" id="vehicle1" name="color" value="#CF4B39" style="background-color: #CF4B39;" formControlName="color">
-                    <input type="radio" id="vehicle1" name="color" value="#F2A53B" style="background-color: #F2A53B;" formControlName="color">
-                    <input type="radio" id="vehicle1" name="color" value="#C4C4C4" style="background-color: #C4C4C4;" formControlName="color">
-                    <input type="radio" id="vehicle1" name="color" value="#444444" style="background-color: #444444;" formControlName="color">
+                    <input type="radio" id="vehicle1" name="color" value="#62D49F" style="background-color: #62D49F;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="color" value="#385065" style="background-color: #385065;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="color" value="#CF4B39" style="background-color: #CF4B39;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="color" value="#F2A53B" style="background-color: #F2A53B;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="color" value="#C4C4C4" style="background-color: #C4C4C4;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="color" value="#444444" style="background-color: #444444;" formControlName="brand_color">
                 </div>
-                <div class="col-md-12" *ngIf="form.get('color')?.invalid && (form.get('color')?.dirty || form.get('color')?.touched)">
-                    <span class="err" *ngIf="form.get('color')?.getError('required')">Campo Obligatorio</span>
+                <div class="col-md-12" *ngIf="form.get('brand_color')?.invalid && (form.get('brand_color')?.dirty || form.get('brand_color')?.touched)">
+                    <span class="err" *ngIf="form.get('brand_color')?.getError('required')">Campo Obligatorio</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="user">
                     <label for="pais">País</label><br>
-                    <select name="pais" id="pais" aria-placeholder="País" formControlName="pais">
+                    <select name="pais" id="pais" aria-placeholder="País" formControlName="country">
                         <option selected disabled>Selecciona el país</option>
                         <option value="Colombia">Colombia</option>
                     </select>
-                    <div class="col-md-12" *ngIf="form.get('pais')?.invalid && (form.get('pais')?.dirty || form.get('pais')?.touched)">
-                        <span class="err" *ngIf="form.get('pais')?.getError('required')">Campo Obligatorio</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="user">
-                    <label for="ciudad">Ciudad</label><br>
-                    <select name="ciudad" id="ciudad" aria-placeholder="ciudad" formControlName="ciudad">
-                        <option selected disabled>Selecciona la ciudad</option>
-                        <option value="Bogota">Bogota D.C</option>
-                        <option value="Medellin">Medellin</option>
-                    </select>
-                    <div class="col-md-12" *ngIf="form.get('ciudad')?.invalid && (form.get('ciudad')?.dirty || form.get('ciudad')?.touched)">
-                        <span class="err" *ngIf="form.get('ciudad')?.getError('required')">Campo Obligatorio</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="user">
-                    <label for="direccion">Dirección</label><br>
-                    <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu dirección" formControlName="direccion">
-                    <div class="col-md-12" *ngIf="form.get('direccion')?.invalid && (form.get('direccion')?.dirty || form.get('direccion')?.touched)">
-                        <span class="err" *ngIf="form.get('direccion')?.getError('required')">Campo Obligatorio</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="user">
-                            <label for="Indicatico">Indicatico</label><br>
-                            <select name="Indicatico" id="Indicatico" aria-placeholder="País" formControlName="indicativo">
-                                <option selected disabled>Seleccione</option>
-                                <option value="+57">+57</option>
-                            </select>
-                            <div class="col-md-12" *ngIf="form.get('indicativo')?.invalid && (form.get('indicativo')?.dirty || form.get('indicativo')?.touched)">
-                                <span class="err" *ngIf="form.get('indicativo')?.getError('required')">Campo Obligatorio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="user">
-                            <label for="telefono">Teléfono</label><br>
-                            <input type="text" name="telefono" placeholder="Ingresa tu teléfono" formControlName="telefono">
-                            <div class="col-md-12" *ngIf="form.get('telefono')?.invalid && (form.get('telefono')?.dirty || form.get('telefono')?.touched)">
-                                <span class="err" *ngIf="form.get('telefono')?.getError('required')">Campo Obligatorio</span>
-                            </div>
-                        </div>
+                    <div class="col-md-12" *ngIf="form.get('country')?.invalid && (form.get('country')?.dirty || form.get('country')?.touched)">
+                        <span class="err" *ngIf="form.get('country')?.getError('required')">Campo Obligatorio</span>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,9 @@
                     <input type="text" name="usuario" placeholder="Ingresa tu nombre" formControlName="cardNumber">
                     <div class="col-md-12" *ngIf="form.get('cardNumber')?.invalid && (form.get('cardNumber')?.dirty || form.get('cardNumber')?.touched)">
                         <span class="err" *ngIf="form.get('cardNumber')?.getError('required')">Campo Obligatorio</span>
+                        <span class="err" *ngIf="form.get('cardNumber')?.getError('pattern')">Solo numeros</span>
+                        <span class="err" *ngIf="form.get('cardNumber')?.getError('maxlength')">Minimo 16 Digitos</span>
+                        <span class="err" *ngIf="form.get('cardNumber')?.getError('minlength')">Maximo 16 Digitos</span>
                     </div>
                 </div>
             </div>
@@ -19,6 +22,8 @@
                         <input type="text" name="expMonth" placeholder="Mes" formControlName="expMonth">
                         <div class="col-md-12" *ngIf="form.get('expMonth')?.invalid && (form.get('expMonth')?.dirty || form.get('expMonth')?.touched)">
                             <span class="err" *ngIf="form.get('expMonth')?.getError('required')">Campo Obligatorio</span>
+                            <span class="err" *ngIf="form.get('expMonth')?.getError('min')">Minimo 1</span>
+                            <span class="err" *ngIf="form.get('expMonth')?.getError('max')">Maximo 12</span>
                         </div>
                     </div>
                 </div>
@@ -28,6 +33,7 @@
                         <input type="text" name="expYear" placeholder="Año" formControlName="expYear">
                         <div class="col-md-12" *ngIf="form.get('expYear')?.invalid && (form.get('expYear')?.dirty || form.get('expYear')?.touched)">
                             <span class="err" *ngIf="form.get('expYear')?.getError('required')">Campo Obligatorio</span>
+                            <span class="err" *ngIf="form.get('expMonth')?.getError('min')">Minimo 1</span>
                         </div>
                     </div>
                 </div>

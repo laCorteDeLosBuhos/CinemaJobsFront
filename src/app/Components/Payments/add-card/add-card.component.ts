@@ -15,8 +15,8 @@ export class AddCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this._fb.group({
-      cardNumber:new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/)]),
-      expMonth:new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/)]),
+      cardNumber:new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/),Validators.minLength(16),Validators.minLength(16)]),
+      expMonth:new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/),Validators.min(1),Validators.min(12)]),
       expYear:new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/)]),
       cvc:new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/)]),
       cardName:new FormControl('',[Validators.required]),
