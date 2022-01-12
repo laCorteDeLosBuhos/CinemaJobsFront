@@ -32,7 +32,11 @@ export class UsuarioComponent implements OnInit {
     if(this.form.valid){
       let data=this.form.value;
       data.account_code=uniqid('AC');
+      data.parent="Administrador";
       this.service.crearUsuarioAdmin(data).toPromise().then((res:any)=>{
+        this.service.mailingreso({nombreUsuario:data.user,email:["<"+data.email+">"]}).toPromise().then(res=>{
+
+        })
         Swal.fire('Exito',res.message,'success').then((result)=>{
           this.router.navigate(['administrar/usuarios'])
         })

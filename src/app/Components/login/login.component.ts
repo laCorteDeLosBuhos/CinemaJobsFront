@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         "password": this.form.get("pass")?.value
       };
       this.serv.login(request).subscribe(res=>{
-        if(res.TipoUsuario=="Administrador"){
+        if(res.parent=="Administrador"){
           this.router.navigate(['administrar/usuarios'])
         }else{
           sessionStorage.setItem("email",this.form.get("user")?.value)

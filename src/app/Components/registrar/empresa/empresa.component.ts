@@ -37,9 +37,12 @@ export class EmpresaComponent implements OnInit {
   crear(){
     if(this.form.valid){
       let data=this.form.value;
-      data.logo=this.image;
+      //data.logo=this.image;
       data.account_code=uniqid('AC');
       this.service.crearUsuario(data).toPromise().then((res:any)=>{
+        this.service.mailingreso({nombreUsuario:data.user,email:["<"+data.email+">"]}).toPromise().then(res=>{
+
+        })
         Swal.fire('Exito',res.message,'success').then((result)=>{
           this.router.navigate(['administrar/usuarios'])
         })

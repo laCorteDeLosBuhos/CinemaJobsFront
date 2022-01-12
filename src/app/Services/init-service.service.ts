@@ -10,19 +10,19 @@ export class InitServiceService {
   constructor(private http: HttpClient) { }
 
   login(datos:any):Observable<any>{
-    return this.http.post("http://localhost:4000/api/auth/",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/auth/",datos)
   }
   crearUsuario(datos:any):Observable<any>{
-    return this.http.post("http://localhost:4000/api/cuentaspadre/crear",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/cuentaspadre/crear",datos)
   }
   crearUsuarioAdmin(datos:any):Observable<any>{
-    return this.http.post("http://localhost:4000.com/api/admin/crear",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/admin/crear",datos)
   }
   obtenerUsuarios():Observable<any>{
-    return this.http.get("http://localhost:4000/api/cuentas/obtener")
+    return this.http.get("https://cinemajobs-api.herokuapp.com/api/cuentas/obtener")
   }
   eliminarUsuario(datos:any):Observable<any>{
-    return this.http.post("http://localhost:4000/api/cuentaspadre/eliminar",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/cuentaspadre/eliminar",datos)
   }
   editarUsuario(datos:any):Observable<any>{
     return this.http.post("https://cinemajobs-api.herokuapp.com/api/cuentaspadre/editar",datos)
@@ -47,5 +47,8 @@ export class InitServiceService {
   }
   findCustomer(datos:any):Observable<any>{
     return this.http.post("https://cinemajobs-api.herokuapp.com/payment/findCustomer",datos)
+  }
+  mailingreso(datos:any):Observable<any>{
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/mail/ingreso",datos)
   }
 }
