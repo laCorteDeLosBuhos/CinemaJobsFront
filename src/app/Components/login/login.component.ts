@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InitServiceService } from 'src/app/Services/init-service.service';
@@ -15,17 +15,25 @@ export class LoginComponent implements OnInit {
     pass: new FormControl(''),
   });
   constructor(private serv:InitServiceService,private router:Router) { }
-
+  @ViewChild('patientInfoForm') patientInfoFormElement:any;
   ngOnInit(): void {
 
   }
-  submit(){
+  public patientInfoFormSubmitMethod(): void {
+      this.patientInfoFormElement.nativeElement.submit();
+  }
+  submit(a:any){
+    
     if(this.form.valid){
+      return true;
       let request={
-        "username": this.form.get("user")?.value,
+        "email": this.form.get("user")?.value,
         "password": this.form.get("pass")?.value
       };
-      this.serv.login(request).subscribe(res=>{
+      var formData: any = new FormData();
+      formData.append("email", this.form.get("user")?.value)
+      formData.append("password",this.form.get("pass")?.value)
+      this.serv.login(formData).subscribe(res=>{
         if(res.parent=="Administrador"){
           this.router.navigate(['administrar/usuarios'])
         }else{
@@ -59,7 +67,8 @@ export class LoginComponent implements OnInit {
         }
       })
     }else{
-
+      a.preventDefault()
+      return false;
     }
   }
 }
