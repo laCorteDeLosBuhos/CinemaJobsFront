@@ -59,6 +59,7 @@ export class IniciopagoComponent implements OnInit {
     })
   }
   send(){
+    console.log("why")
     let datos={
       email:this.params.get("email")!=null?this.params.get("email"):sessionStorage.getItem("email"),
       cardId:this.selected.cardId,
