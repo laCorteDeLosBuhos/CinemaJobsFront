@@ -15,10 +15,13 @@ export class IniciopagoComponent implements OnInit {
   form:FormGroup=new FormGroup({});
   cards: any;
   constructor(private service:InitServiceService,private _fb:FormBuilder,private router:Router) { }
-
+  params = new URLSearchParams(window.location.search)
   ngOnInit(): void {
     let datos={
-      email:localStorage.getItem("email")
+      email:this.params.get("email")!=null?this.params.get("email"):sessionStorage.getItem("email")
+    }
+    if(this.params.has("value")){
+      sessionStorage.setItem("value",this.params.get("value")!)
     }
     this.service.findCustomer(datos).toPromise().then((res:any)=>{
         sessionStorage.setItem("customerId",res.CustomerID)
@@ -57,16 +60,24 @@ export class IniciopagoComponent implements OnInit {
   }
   send(){
     let datos={
-      email:sessionStorage.getItem("email"),
+      email:this.params.get("email")!=null?this.params.get("email"):sessionStorage.getItem("email"),
       cardId:this.selected.cardId,
-      amount:50,
+      amount:this.params.get("value")!=null?this.params.get("value"):sessionStorage.getItem("value"),
       customerId:sessionStorage.getItem("customerId"),
       oneTime:false
     }
     this.service.createCharge(datos).toPromise().then(res=>{
-      Swal.fire('Transaccion Exitosa','Puedes volver a nuestra pagina','success')
+      Swal.fire('Transaccion Exitosa','Puedes volver a nuestra pagina','success').then(res=>{
+        if(res.isConfirmed){
+          location.href="https://cinemajobs-old.herokuapp.com/"
+        }
+      })
     }).catch(err=>{
-      Swal.fire('Transaccion Exitosa','Puedes volver a nuestra pagina','success')
+      Swal.fire('Ha ocurrido un error','Puedes volver a nuestra pagina','error').then(res=>{
+        if(res.isConfirmed){
+          location.href="https://cinemajobs-old.herokuapp.com/"
+        }
+      })
     })
   }
 }
