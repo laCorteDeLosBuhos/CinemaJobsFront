@@ -18,7 +18,7 @@ export class IniciopagoComponent implements OnInit {
 
   ngOnInit(): void {
     let datos={
-      email:sessionStorage.getItem("email")
+      email:localStorage.getItem("email")
     }
     this.service.findCustomer(datos).toPromise().then((res:any)=>{
         sessionStorage.setItem("customerId",res.CustomerID)

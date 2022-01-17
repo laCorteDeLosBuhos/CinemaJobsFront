@@ -22,29 +22,15 @@ export class LoginComponent implements OnInit {
   public patientInfoFormSubmitMethod(): void {
       this.patientInfoFormElement.nativeElement.submit();
   }
-  submit(a:any){
+  submit(){
     
     if(this.form.valid){
-      return true;
       let request={
-        "email": this.form.get("user")?.value,
+        "username": this.form.get("user")?.value,
         "password": this.form.get("pass")?.value
       };
-      var formData: any = new FormData();
-      formData.append("email", this.form.get("user")?.value)
-      formData.append("password",this.form.get("pass")?.value)
-      this.serv.login(formData).subscribe(res=>{
-        if(res.parent=="Administrador"){
-          this.router.navigate(['administrar/usuarios'])
-        }else{
-          sessionStorage.setItem("email",this.form.get("user")?.value)
-          this.router.navigate(['payments'])
-          /*Swal.fire(
-            'Exito',
-            'Haz iniciado sesión exitosamente',
-            'success'
-          )*/
-        }
+      this.serv.login(request).subscribe(res=>{
+        this.patientInfoFormSubmitMethod()
       },err=>{
         if(err.status==200){
           Swal.fire(
@@ -67,8 +53,7 @@ export class LoginComponent implements OnInit {
         }
       })
     }else{
-      a.preventDefault()
-      return false;
+      
     }
   }
 }

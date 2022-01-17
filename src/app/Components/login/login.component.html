@@ -4,7 +4,7 @@
         <div class="col-md-6 float-left">
             <div class="login">
                 <img src="/assets/CinemaJobs.png" alt="" class="img-fluid">
-                <form class="enter" [formGroup]="form" method="POST" action="https://cinemajobs-old.herokuapp.com/login" #patientInfoForm (submit)="patientInfoFormSubmitMethod()">
+                <form class="enter" [formGroup]="form" method="POST" action="https://cinemajobs-old.herokuapp.com/login" #patientInfoForm (submit)="submit()">
                     <div class="user">
                         <label for="usuario">Usuario</label><br>
                         <input type="text" name="email" placeholder="Ingresa tu usuario" formControlName="user">
