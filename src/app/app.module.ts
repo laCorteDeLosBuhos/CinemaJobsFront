@@ -18,6 +18,7 @@ import { EditarUsuarioComponent } from './Components/Editar/editar-usuario/edita
 import { IniciopagoComponent } from './Components/Payments/iniciopago/iniciopago.component';
 import { AddCardComponent } from './Components/Payments/add-card/add-card.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TusDatosComponent } from './Components/tus-datos/tus-datos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     EditarEmpresaComponent,
     EditarUsuarioComponent,
     IniciopagoComponent,
-    AddCardComponent
+    AddCardComponent,
+    TusDatosComponent
   ],
   imports: [
     BrowserModule,

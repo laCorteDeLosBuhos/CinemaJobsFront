@@ -8,6 +8,7 @@ import { AddCardComponent } from './Components/Payments/add-card/add-card.compon
 import { IniciopagoComponent } from './Components/Payments/iniciopago/iniciopago.component';
 import { EmpresaComponent } from './Components/registrar/empresa/empresa.component';
 import { UsuarioComponent } from './Components/registrar/usuario/usuario.component';
+import { TusDatosComponent } from './Components/tus-datos/tus-datos.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'editar/empresa',component:EditarEmpresaComponent},
   {path:'payments',component:IniciopagoComponent},
   {path:'payments/addCard',component:AddCardComponent},
+  {path:'validarIdentidad',component:TusDatosComponent},
 ];
 
 @NgModule({

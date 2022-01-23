@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="container">
+    <form class="formulario" [formGroup]="form" (submit)="crear()">
+        <div class="row">
+            <h2>Validar Informacion de cedula</h2>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="usuario">Tipo de documento</label><br />
+                    <select name="tipodoc" id="tipodoc" aria-placeholder="Tipo de documento" formControlName="tipodoc">
+                        <option selected disabled>Selecciona el tipo de documento</option>
+                        <option value="CC">Cedula de Ciudadania</option>
+                        <option value="CE">Cedula de Extranjeria</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('tipodoc')?.invalid && (form.get('tipodoc')?.dirty || form.get('tipodoc')?.touched)">
+                        <span class="err" *ngIf="form.get('tipodoc')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="documento">Numero de Documento</label><br>
+                    <input type="number" name="documento" placeholder="Documento" formControlName="documento">
+                    <div class="col-md-12" *ngIf="form.get('documento')?.invalid && (form.get('documento')?.dirty || form.get('documento')?.touched)">
+                        <span class="err" *ngIf="form.get('documento')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center py-5">
+                <button type="submit">Verificar</button>
+            </div>
+        </div>
+    </form>
+    <div [innerHTML]="respuesta"></div>
+</div>

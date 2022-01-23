@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -50,5 +50,14 @@ export class InitServiceService {
   }
   mailingreso(datos:any):Observable<any>{
     return this.http.post("https://cinemajobs-api.herokuapp.com/api/mail/ingreso",datos)
+  }
+  iniciartusdatos(datos:any):Observable<any>{
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/tusdatos/iniciar",datos)
+  }
+  obtenertusdatos(a:any):Observable<any>{
+    const headers = new HttpHeaders({
+      Accept:'text/html'
+    });
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/tusdatos/validar",a,{headers:headers,responseType:'text'})
   }
 }
