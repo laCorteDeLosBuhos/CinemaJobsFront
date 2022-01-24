@@ -31,7 +31,10 @@ export class TusDatosComponent implements OnInit {
       }
       this.service.iniciartusdatos(datos).toPromise().then((res:any)=>{
         this.service.obtenertusdatos(res).toPromise().then((html:any)=>{
-          this.respuesta=html
+          this.respuesta=html;
+          document.querySelectorAll("a[href]").forEach((err:any)=>{if(err.href.includes("api")){err.href=err.href.replace("https://tusdatos.co","https://dash-board.tusdatos.co")}})
+          document.querySelector("#reporte > div > a:nth-child(5)")?.removeAttribute("href");
+          document.querySelector("#reporte > div > a:nth-child(5)")?.setAttribute("onclick","window.print()")
         })
       })
     }
