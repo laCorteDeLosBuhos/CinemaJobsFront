@@ -9,7 +9,7 @@ import { InitServiceService } from 'src/app/Services/init-service.service';
   styleUrls: ['./tus-datos.component.css']
 })
 export class TusDatosComponent implements OnInit {
-
+  params = new URLSearchParams(window.location.search)
   form!: FormGroup;
   
     respuesta=""
@@ -17,9 +17,12 @@ export class TusDatosComponent implements OnInit {
     ngOnInit(): void {
       let informacion=this.service.informacion;
       this.form=this.fb.group({
-        tipodoc:["",[Validators.required]],
-        documento:["",[Validators.required]]
+        tipodoc:[this.params.get("tipodoc"),[Validators.required]],
+        documento:[this.params.get("documento"),[Validators.required]]
       })
+      if(this.params.has("tipodoc") && this.params.has("documento")){
+        this.crear()
+      }
     }
     crear(){
       let datos={
