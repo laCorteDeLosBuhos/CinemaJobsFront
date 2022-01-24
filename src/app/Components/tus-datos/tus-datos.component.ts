@@ -17,7 +17,7 @@ export class TusDatosComponent implements OnInit {
     ngOnInit(): void {
       let informacion=this.service.informacion;
       this.form=this.fb.group({
-        tipodoc:[this.params.get("tipodoc").substring(1,3),[Validators.required]],
+        tipodoc:[this.params.get("tipodoc")!.substring(1,3),[Validators.required]],
         documento:[this.params.get("documento"),[Validators.required]]
       })
       if(this.params.has("tipodoc") && this.params.has("documento")){
