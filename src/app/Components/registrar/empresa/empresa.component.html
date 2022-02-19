@@ -112,6 +112,18 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="rol">Plan Contratado</label><br>
+                    <select name="rol" id="rol" aria-placeholder="País" formControlName="rol">
+                        <option selected disabled>Selecciona el país</option>
+                        <option [value]="rol.Id" *ngFor="let rol of roles">{{rol.Nombre}}</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('rol')?.invalid && (form.get('rol')?.dirty || form.get('rol')?.touched)">
+                        <span class="err" *ngIf="form.get('rol')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-12 pt-3" formArrayName="cuentasSecundarias" *ngIf="cuentas.length>0">
                 <div class="row" *ngFor="let cuenta of cuentas.controls;  index as i">

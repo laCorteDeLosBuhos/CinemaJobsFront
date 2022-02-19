@@ -88,13 +88,13 @@
             </div>
             <div class="col-md-6">
                 <div class="user">
-                    <label for="color">Color</label><br>
-                    <input type="radio" id="vehicle1" name="color" value="#62D49F" style="background-color: #62D49F;" formControlName="brand_color">
-                    <input type="radio" id="vehicle1" name="color" value="#385065" style="background-color: #385065;" formControlName="brand_color">
-                    <input type="radio" id="vehicle1" name="color" value="#CF4B39" style="background-color: #CF4B39;" formControlName="brand_color">
-                    <input type="radio" id="vehicle1" name="color" value="#F2A53B" style="background-color: #F2A53B;" formControlName="brand_color">
-                    <input type="radio" id="vehicle1" name="color" value="#C4C4C4" style="background-color: #C4C4C4;" formControlName="brand_color">
-                    <input type="radio" id="vehicle1" name="color" value="#444444" style="background-color: #444444;" formControlName="brand_color">
+                    <label for="brand_color">Color</label><br>
+                    <input type="radio" id="vehicle1" name="brand_color" value="#62D49F" style="background-color: #62D49F;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="brand_color" value="#385065" style="background-color: #385065;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="brand_color" value="#CF4B39" style="background-color: #CF4B39;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="brand_color" value="#F2A53B" style="background-color: #F2A53B;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="brand_color" value="#C4C4C4" style="background-color: #C4C4C4;" formControlName="brand_color">
+                    <input type="radio" id="vehicle1" name="brand_color" value="#444444" style="background-color: #444444;" formControlName="brand_color">
                 </div>
                 <div class="col-md-12" *ngIf="form.get('brand_color')?.invalid && (form.get('brand_color')?.dirty || form.get('brand_color')?.touched)">
                     <span class="err" *ngIf="form.get('brand_color')?.getError('required')">Campo Obligatorio</span>
@@ -109,6 +109,18 @@
                     </select>
                     <div class="col-md-12" *ngIf="form.get('country')?.invalid && (form.get('country')?.dirty || form.get('country')?.touched)">
                         <span class="err" *ngIf="form.get('country')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="pais">Rol</label><br>
+                    <select name="pais" id="pais" aria-placeholder="País" formControlName="rol">
+                        <option selected disabled>Selecciona el Rol</option>
+                        <option *ngFor="let rol of roles" [value]="rol.Id" >{{rol.Nombre}}</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('rol')?.invalid && (form.get('rol')?.dirty || form.get('rol')?.touched)">
+                        <span class="err" *ngIf="form.get('rol')?.getError('required')">Campo Obligatorio</span>
                     </div>
                 </div>
             </div>

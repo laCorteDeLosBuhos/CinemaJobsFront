@@ -13,6 +13,7 @@ export class EmpresaComponent implements OnInit {
   form!: FormGroup;
   cuentas = new FormArray([]);
   image:any="";
+  roles:any;
   constructor(private fb: FormBuilder,private service:InitServiceService,private router:Router) { }
   ngOnInit(): void {
     this.form=this.fb.group({
@@ -31,7 +32,11 @@ export class EmpresaComponent implements OnInit {
       video:['',[Validators.required]],
       color:['',[Validators.required]],
       pais:['',[Validators.required]],
+      rol:['',[Validators.required]],
       cuentasSecundarias:this.cuentas
+    })
+    this.service.roles().toPromise().then(res=>{
+      this.roles=res;
     })
   }
   crear(){

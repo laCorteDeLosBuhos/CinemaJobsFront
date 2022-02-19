@@ -54,6 +54,9 @@ export class InitServiceService {
   iniciartusdatos(datos:any):Observable<any>{
     return this.http.post("https://cinemajobs-api.herokuapp.com/api/tusdatos/iniciar",datos)
   }
+  roles():Observable<any>{
+    return this.http.get("https://cinemajobs-api.herokuapp.com/api/obtenerRoles")
+  }
   obtenertusdatos(a:any):Observable<any>{
     const headers = new HttpHeaders({
       Accept:'text/html'

@@ -60,7 +60,6 @@ input[type="radio"]:checked {
 }
 
 select option {
-    color: #C4C4C4;
     font-size: 16px;
 }
 

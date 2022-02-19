@@ -14,7 +14,12 @@ export class EditarEmpresaComponent implements OnInit {
   form!: FormGroup;
   cuentas = new FormArray([]);
   image:any="";
-  constructor(private fb: FormBuilder,private service:InitServiceService,private router:Router) { }
+  roles: any;
+  constructor(private fb: FormBuilder,private service:InitServiceService,private router:Router) { 
+    this.service.roles().toPromise().then(res=>{
+      this.roles=res;
+    })
+  }
   ngOnInit(): void {
     let informacion=this.service.informacion;
     this.form=this.fb.group({
@@ -34,8 +39,10 @@ export class EditarEmpresaComponent implements OnInit {
       brand_video:[informacion.brand_video,[Validators.required]],
       brand_color:[informacion.brand_color,[Validators.required]],
       country:[informacion.country,[Validators.required]],
+      rol:[informacion.planContrated,[Validators.required]],
     })
     this.image=informacion.brand_logo;
+    
     
   }
   crear(){
