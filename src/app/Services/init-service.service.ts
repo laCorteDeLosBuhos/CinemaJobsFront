@@ -63,4 +63,13 @@ export class InitServiceService {
     });
     return this.http.post("https://cinemajobs-api.herokuapp.com/api/tusdatos/validar",a,{headers:headers,responseType:'text'})
   }
+  obtenerProcesos():Observable<any>{
+    return this.http.get("https://cinemajobs-api.herokuapp.com/api/offers")
+  }
+  crearProcesos(datos:any):Observable<any>{
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/offers/crear",datos)
+  }
+  eliminarProcesos(datos:any):Observable<any>{
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/offers/deleteOffer",datos)
+  }
 }

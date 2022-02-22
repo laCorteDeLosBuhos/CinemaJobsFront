@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CrearComponent } from './Components/Administrar/ofertas/crear/crear.component';
+import { OfertasComponent } from './Components/Administrar/ofertas/ofertas.component';
 import { UsuariosComponent } from './Components/Administrar/usuarios/usuarios.component';
 import { EditarEmpresaComponent } from './Components/Editar/editar-empresa/editar-empresa.component';
 import { EditarUsuarioComponent } from './Components/Editar/editar-usuario/editar-usuario.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path:'payments',component:IniciopagoComponent},
   {path:'payments/addCard',component:AddCardComponent},
   {path:'validarIdentidad',component:TusDatosComponent},
+  {path:'administrar/ofertas',component:OfertasComponent},
+  {path:'registrar/oferta',component:CrearComponent}
 ];
 
 @NgModule({

@@ -3,3 +3,9 @@
     width: 100%;
     padding: 10px 5%;
 }
+
+.roar a {
+    color: #000;
+    font-size: 25px;
+    padding: 20px;
+}

@@ -1,0 +1,149 @@
+<app-header></app-header>
+<div class="container">
+    <form class="formulario" [formGroup]="form" (submit)="crear()">
+        <div class="row">
+            <h2>Crear Proceso</h2>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="accountUser">Nombre de la Cuenta Padre</label><br>
+                    <select name="accountUser" id="accountUser" aria-placeholder="accountUser" formControlName="accountUser">
+                        <option disabled selected value="">Selecciona la Cuenta</option>
+                        <option [value]="rol.account_code" *ngFor="let rol of roles">{{rol.name}}</option>
+                    </select>
+                    <div class="col-md-12" *ngIf="form.get('accountUser')?.invalid && (form.get('accountUser')?.dirty || form.get('accountUser')?.touched)">
+                        <span class="err" *ngIf="form.get('accountUser')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="usuario">Nombre del proceso</label><br>
+                    <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu nombre" formControlName="name">
+                    <div class="col-md-12" *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)">
+                        <span class="err" *ngIf="form.get('name')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="usuario">Descripcion de la oferta</label><br>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Ingresa tu nombre" formControlName="offerDescription"></textarea>
+                    <div class="col-md-12" *ngIf="form.get('offerDescription')?.invalid && (form.get('offerDescription')?.dirty || form.get('offerDescription')?.touched)">
+                        <span class="err" *ngIf="form.get('offerDescription')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="offer-youtube-video">Video de Youtube</label><br>
+                    <input type="text" name="offer-youtube-video" id="offer-youtube-video" placeholder="Ingresa tu nombre" formControlName="offer-youtube-video">
+                    <div class="col-md-12" *ngIf="form.get('offer-youtube-video')?.invalid && (form.get('offer-youtube-video')?.dirty || form.get('offer-youtube-video')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-youtube-video')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-contact-phone">Telefono Contacto</label><br>
+                    <input type="text" name="offer-contact-phone" id="offer-contact-phone" placeholder="Ingresa tu nombre" formControlName="offer-contact-phone">
+                    <div class="col-md-12" *ngIf="form.get('offer-contact-phone')?.invalid && (form.get('offer-contact-phone')?.dirty || form.get('offer-contact-phone')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-contact-phone')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-contact-whatsapp">Whatsapp</label><br>
+                    <input type="text" name="offer-contact-whatsapp" id="offer-contact-whatsapp" placeholder="Ingresa tu nombre" formControlName="offer-contact-whatsapp">
+                    <div class="col-md-12" *ngIf="form.get('offer-contact-whatsapp')?.invalid && (form.get('offer-contact-whatsapp')?.dirty || form.get('offer-contact-whatsapp')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-contact-whatsapp')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-contact-email">Correo de Contacto</label><br>
+                    <input type="text" name="offer-contact-email" id="offer-contact-email" placeholder="Ingresa tu nombre" formControlName="offer-contact-email">
+                    <div class="col-md-12" *ngIf="form.get('offer-contact-email')?.invalid && (form.get('offer-contact-email')?.dirty || form.get('offer-contact-email')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-contact-email')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-salary">Salario</label><br>
+                    <input type="text" name="offer-salary" id="offer-salary" placeholder="Ingresa tu nombre" formControlName="offer-salary">
+                    <div class="col-md-12" *ngIf="form.get('offer-salary')?.invalid && (form.get('offer-salary')?.dirty || form.get('offer-salary')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-salary')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="offer-schedule">Horario</label><br>
+                    <input type="text" name="offer-schedule" id="offer-schedule" placeholder="Ingresa tu nombre" formControlName="offer-schedule">
+                    <div class="col-md-12" *ngIf="form.get('offer-schedule')?.invalid && (form.get('offer-schedule')?.dirty || form.get('offer-schedule')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-schedule')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="offer-requirements">Requerimientos</label><br>
+                    <textarea cols="30" rows="5" name="offer-requirements" id="offer-requirements" placeholder="Ingresa tu nombre" formControlName="offer-requirements"></textarea>
+                    <div class="col-md-12" *ngIf="form.get('offer-requirements')?.invalid && (form.get('offer-requirements')?.dirty || form.get('offer-requirements')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-requirements')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-location">Ciudad de la oferta</label><br>
+                    <input type="text" name="offer-location" id="offer-location" placeholder="Ingresa tu nombre" formControlName="offer-location">
+                    <div class="col-md-12" *ngIf="form.get('offer-location')?.invalid && (form.get('offer-location')?.dirty || form.get('offer-location')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-location')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-contract-type">Tipo de Contrato</label><br>
+                    <input type="text" name="offer-contract-type" id="offer-contract-type" placeholder="Ingresa tu nombre" formControlName="offer-contract-type">
+                    <div class="col-md-12" *ngIf="form.get('offer-contract-type')?.invalid && (form.get('offer-contract-type')?.dirty || form.get('offer-contract-type')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-contract-type')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="user">
+                    <label for="offer-additional-instructions">Instrucciones Adicionales</label><br>
+                    <textarea cols="30" rows="5" name="offer-additional-instructions" id="offer-additional-instructions" placeholder="Ingresa tu nombre" formControlName="offer-additional-instructions"></textarea>
+                    <div class="col-md-12" *ngIf="form.get('offer-additional-instructions')?.invalid && (form.get('offer-additional-instructions')?.dirty || form.get('offer-additional-instructions')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-additional-instructions')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-id-tag">Id Oferta</label><br>
+                    <input type="text" name="offer-id-tag" id="offer-id-tag" placeholder="Ingresa tu nombre" formControlName="offer-id-tag">
+                    <div class="col-md-12" *ngIf="form.get('offer-id-tag')?.invalid && (form.get('offer-id-tag')?.dirty || form.get('offer-id-tag')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-id-tag')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user">
+                    <label for="offer-external-view-password">Contraseña Externa</label><br>
+                    <input type="text" name="offer-external-view-password" id="offer-external-view-password" placeholder="Ingresa tu nombre" formControlName="offer-external-view-password">
+                    <div class="col-md-12" *ngIf="form.get('offer-external-view-password')?.invalid && (form.get('offer-external-view-password')?.dirty || form.get('offer-external-view-password')?.touched)">
+                        <span class="err" *ngIf="form.get('offer-external-view-password')?.getError('required')">Campo Obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center py-5">
+                <button type="submit">Crear Oferta</button>
+            </div>
+        </div>
+    </form>
+</div>

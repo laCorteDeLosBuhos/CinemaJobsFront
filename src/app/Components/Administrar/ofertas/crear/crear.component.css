@@ -1,0 +1,107 @@
+h2 {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    line-height: 32.68px;
+    padding-top: 50px;
+    width: 100%;
+}
+
+.user {
+    padding-top: 10px;
+}
+
+label {
+    color: #444444;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+input:not([type="radio"]):not([type="file"]),
+select,
+textarea {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 1px solid #C4C4C4;
+    padding: 12px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #c4c4c4;
+}
+
+input::placeholder {
+    color: #C4C4C4;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    border: 1px solid #C4C4C4;
+    width: 45px;
+    height: 45px;
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+    background-image: url("../../../../../assets/Vector.svg");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+}
+
+.user span {
+    color: #385065;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+select option {
+    color: #C4C4C4;
+    font-size: 16px;
+}
+
+.formulario {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.err {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 19px;
+    color: #CF4B39 !important;
+}
+
+select {
+    background: transparent;
+    background-image: url("../../../../../assets/Shape.svg");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 10px);
+    background-position-y: 15px;
+    background-size: 20px;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #385065;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #fff;
+    padding: 16px 40px;
+    border: none;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #385065;
+    border: 1px solid #385065;
+}
