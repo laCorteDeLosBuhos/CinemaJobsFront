@@ -61,13 +61,21 @@ export class CrearComponent implements OnInit {
         metadata:JSON.stringify(meta)
       }
       this.service.crearProcesos(datos).toPromise().then(res=>{
-        Swal.fire({
-          title: 'Proceso Creado Satisfactoriamente',
-          text: 'Se le ha asignado satisfactoriamente la oferta a la cuenta padre',
-          icon: "success"
-        }).then(res=>{
-          this.router.navigate(['administrar/ofertas'])
-        })
+        if(res.message=="Oferta creada exitosamente"){
+          Swal.fire({
+            title: 'Proceso Creado Satisfactoriamente',
+            text: 'Se le ha asignado satisfactoriamente la oferta a la cuenta padre',
+            icon: "success"
+          }).then(res=>{
+            this.router.navigate(['administrar/ofertas'])
+          })
+        }else{
+          Swal.fire({
+            title: 'Oh no!',
+            text: 'El usuario ya tiene el maximo de procesos creados. Informale que debe incrementar el plan que tiene contratado.',
+            icon: "error"
+          })
+        }
       })
     }else{
       console.log(this.form)
