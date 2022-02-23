@@ -23,7 +23,7 @@ export class EditarEmpresaComponent implements OnInit {
   ngOnInit(): void {
     let informacion=this.service.informacion;
     this.form=this.fb.group({
-      Id:[informacion.Id,[Validators.required]],
+      id_01gz:[informacion.id_01gz,[Validators.required]],
       name:[informacion.name,[Validators.required]],
       email:[informacion.email,[Validators.required]],
       password:['',Validators.compose([
@@ -39,7 +39,7 @@ export class EditarEmpresaComponent implements OnInit {
       brand_video:[informacion.brand_video,[Validators.required]],
       brand_color:[informacion.brand_color,[Validators.required]],
       country:[informacion.country,[Validators.required]],
-      rol:[informacion.planContrated,[Validators.required]],
+      planContrated:[informacion.planContrated,[Validators.required]],
     })
     this.image=informacion.brand_logo;
     
@@ -48,16 +48,17 @@ export class EditarEmpresaComponent implements OnInit {
   crear(){
     if(this.form.valid){
       let data=this.form.value;
-      data.logo=this.image;
+      data.brand_logo=this.image;
       delete data.confirmar;
       this.service.editarUsuario(data).toPromise().then((res:any)=>{
-        Swal.fire('Exito',res.message,'success').then((result)=>{
+        Swal.fire('Exito',"Usuario actualizado exitosamente",'success').then((result)=>{
           this.router.navigate(['administrar/usuarios'])
         })
       }).catch((err:any)=>{
         Swal.fire('Error','Ha ocurrido un error','success')
       })
     }else{
+      console.log(this.form)
       this.form.markAllAsTouched()
     }
   }

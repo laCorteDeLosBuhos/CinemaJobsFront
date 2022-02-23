@@ -115,12 +115,12 @@
             <div class="col-md-6">
                 <div class="user">
                     <label for="pais">Rol</label><br>
-                    <select name="pais" id="pais" aria-placeholder="País" formControlName="rol">
+                    <select name="pais" id="pais" aria-placeholder="País" formControlName="planContrated">
                         <option selected disabled>Selecciona el Rol</option>
                         <option *ngFor="let rol of roles" [value]="rol.Id" >{{rol.Nombre}}</option>
                     </select>
-                    <div class="col-md-12" *ngIf="form.get('rol')?.invalid && (form.get('rol')?.dirty || form.get('rol')?.touched)">
-                        <span class="err" *ngIf="form.get('rol')?.getError('required')">Campo Obligatorio</span>
+                    <div class="col-md-12" *ngIf="form.get('planContrated')?.invalid && (form.get('planContrated')?.dirty || form.get('planContrated')?.touched)">
+                        <span class="err" *ngIf="form.get('planContrated')?.getError('required')">Campo Obligatorio</span>
                     </div>
                 </div>
             </div>
