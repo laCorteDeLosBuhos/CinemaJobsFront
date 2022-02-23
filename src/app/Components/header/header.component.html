@@ -1,7 +1,7 @@
 <div class="headercinema">
     <div class="row justify-content-between">
         <img src="/assets/CinemaJobs.png" alt="" class="img-fluid" style="height: 70px;">
-        <div class="roar">
+        <div class="roar" *ngIf="show">
             <a [routerLink]="['/administrar/ofertas']">
                 Ofertas
             </a>
