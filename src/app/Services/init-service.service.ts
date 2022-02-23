@@ -67,7 +67,7 @@ export class InitServiceService {
     return this.http.get("https://cinemajobs-api.herokuapp.com/api/offers")
   }
   crearProcesos(datos:any):Observable<any>{
-    return this.http.post("https://cinemajobs-api.herokuapp.com/api/offers/crear",datos)
+    return this.http.post("https://cinemajobs-api.herokuapp.com/api/offers/create",datos)
   }
   eliminarProcesos(datos:any):Observable<any>{
     return this.http.post("https://cinemajobs-api.herokuapp.com/api/offers/deleteOffer",datos)
